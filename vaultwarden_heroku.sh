@@ -19,7 +19,8 @@ rm -rf ./${VAULTWARDEN_FOLDER}
 function git_clone {
     GIT_HASH=$1
     echo "Clone current Vaultwarden with depth 1"
-    git clone --depth 1 https://github.com/dani-garcia/vaultwarden.git
+    # git clone --depth 1 https://github.com/dani-garcia/vaultwarden.git
+    git clone --depth 1 --single-branch --branch "${GIT_HASH}" https://github.com/dani-garcia/vaultwarden.git
     cd ./${VAULTWARDEN_FOLDER}
     git checkout "${GIT_HASH}"
     cd ..
